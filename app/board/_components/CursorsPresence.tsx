@@ -18,7 +18,7 @@ const Cursors = () => {
 const CursorsPresence = memo(() => {
   return (
     <>
-      <p>Cursors</p>
+      <Cursors />
     </>
   );
 });

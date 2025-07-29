@@ -17,7 +17,7 @@ export type CanvasState =
 export type Color = {
   r: number;
   g: number;
-  a: number;
+  b: number;
 };
 
 export type Camera = {
@@ -58,7 +58,7 @@ export type RectangleLayer = {
   y: number;
   width: number;
   height: number;
-  fil: Color;
+  fill: Color;
   value?: string;
 };
 
@@ -68,7 +68,7 @@ export type EllipseleLayer = {
   y: number;
   width: number;
   height: number;
-  fil: Color;
+  fill: Color;
   value?: string;
 };
 
@@ -78,7 +78,7 @@ export type TextleLayer = {
   y: number;
   width: number;
   height: number;
-  fil: Color;
+  fill: Color;
   value?: string;
 };
 
@@ -88,7 +88,7 @@ export type NoteLayer = {
   y: number;
   width: number;
   height: number;
-  fil: Color;
+  fill: Color;
   value?: string;
 };
 
@@ -98,7 +98,7 @@ export type PathLayer = {
   y: number;
   width: number;
   height: number;
-  fil: Color;
+  fill: Color;
   value?: string;
   points: number[][];
 };
@@ -112,3 +112,10 @@ export enum CanvasMode {
   Resizing,
   Pencil,
 }
+
+export type Layer =
+  | RectangleLayer
+  | NoteLayer
+  | EllipseleLayer
+  | TextleLayer
+  | PathLayer;
