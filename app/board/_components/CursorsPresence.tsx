@@ -1,9 +1,23 @@
-import { useOthersConnectionIds } from "@liveblocks/react/suspense";
 import { memo } from "react";
-import Cursor from "./Cursor";
+import { useOthersConnectionIds } from "@liveblocks/react/suspense";
+import { shallow, useOthersMapped } from "@liveblocks/react";
 
-// interface CursorsPresenceProps {}
-const Cursors = () => {
+import Cursor from "./Cursor";
+import Path from "./Path";
+import { colorToCss } from "@/lib/utils";
+
+const CursorsPresence = memo(function CursorsPresence() {
+  return (
+    <>
+      <Drafts />
+      <Cursors />
+    </>
+  );
+});
+
+export default CursorsPresence;
+
+function Cursors() {
   const ids = useOthersConnectionIds();
 
   return (
@@ -13,16 +27,34 @@ const Cursors = () => {
       ))}
     </>
   );
-};
+}
 
-const CursorsPresence = memo(() => {
+function Drafts() {
+  const others = useOthersMapped(
+    (other) => ({
+      pencilDraft: other.presence.pencilDraft,
+      penColor: other.presence.penColor,
+    }),
+    shallow
+  );
+
   return (
     <>
-      <Cursors />
+      {others.map(([key, other]) => {
+        if (other.pencilDraft) {
+          return (
+            <Path
+              key={key}
+              x={0}
+              y={0}
+              points={other.pencilDraft}
+              fill={other.penColor ? colorToCss(other.penColor) : "#000"}
+            />
+          );
+        }
+
+        return null;
+      })}
     </>
   );
-});
-
-CursorsPresence.displayName = "CursorsPresence";
-
-export default CursorsPresence;
+}
