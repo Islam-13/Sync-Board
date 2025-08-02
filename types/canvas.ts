@@ -20,6 +20,14 @@ export type Color = {
   b: number;
 };
 
+export type FontOptions = {
+  fSize?: string;
+  fWeight?: boolean;
+  fStyle?: boolean;
+  txtTransform?: "uppercase" | "lowercase";
+  txtDecoration?: boolean;
+};
+
 export type Camera = {
   x: number;
   y: number;
@@ -60,6 +68,7 @@ export type RectangleLayer = {
   height: number;
   fill: Color;
   value?: string;
+  fontOptions?: FontOptions;
 };
 
 export type EllipseleLayer = {
@@ -70,9 +79,10 @@ export type EllipseleLayer = {
   height: number;
   fill: Color;
   value?: string;
+  fontOptions?: FontOptions;
 };
 
-export type TextleLayer = {
+export type TextLayer = {
   type: LayerType.Text;
   x: number;
   y: number;
@@ -80,6 +90,7 @@ export type TextleLayer = {
   height: number;
   fill: Color;
   value?: string;
+  fontOptions?: FontOptions;
 };
 
 export type NoteLayer = {
@@ -90,6 +101,7 @@ export type NoteLayer = {
   height: number;
   fill: Color;
   value?: string;
+  fontOptions?: FontOptions;
 };
 
 export type PathLayer = {
@@ -100,6 +112,7 @@ export type PathLayer = {
   height: number;
   fill: Color;
   value?: string;
+  fontOptions?: FontOptions;
   points: number[][];
 };
 
@@ -117,5 +130,5 @@ export type Layer =
   | RectangleLayer
   | NoteLayer
   | EllipseleLayer
-  | TextleLayer
+  | TextLayer
   | PathLayer;

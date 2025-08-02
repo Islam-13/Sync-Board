@@ -14,7 +14,7 @@ interface NoteProps {
 }
 
 function Note({ id, layer, onPointerDown, selectionColor }: NoteProps) {
-  const { x, y, width, height, fill, value } = layer;
+  const { x, y, width, height, fill, value, fontOptions } = layer;
 
   const updateValue = useMutation(({ storage }, newValue: string) => {
     const liveLayers = storage.get("layers");
@@ -46,7 +46,17 @@ function Note({ id, layer, onPointerDown, selectionColor }: NoteProps) {
           "h-full w-full flex items-center justify-center text-center outline-none",
           font.className
         )}
-        style={{ color: fill ? getContrastColor(fill) : "#000" }}
+        style={{
+          color: fill ? getContrastColor(fill) : "#000",
+          fontSize: fontOptions?.fSize ? fontOptions.fSize : "32px",
+          fontWeight: fontOptions?.fWeight ? "bolder" : "normal",
+          fontStyle: fontOptions?.fStyle ? "italic" : "normal",
+          textDecoration: fontOptions?.txtDecoration ? "underline" : "none",
+          textTransform:
+            fontOptions?.txtTransform === "uppercase"
+              ? "uppercase"
+              : "lowercase",
+        }}
       ></ContentEditable>
     </foreignObject>
   );

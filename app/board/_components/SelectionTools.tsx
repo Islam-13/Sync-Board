@@ -8,7 +8,21 @@ import ColorPicker from "./ColorPicker";
 import useDeleteLayers from "@/hooks/useDeleteLayers";
 import Hint from "@/app/(dashboard)/_components/Hint";
 import { Button } from "@/components/ui/button";
-import { BringToFront, SendToBack, Trash2 } from "lucide-react";
+import {
+  BringToFront,
+  LetterText,
+  Palette,
+  Pencil,
+  SendToBack,
+  Trash2,
+} from "lucide-react";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import NoteTextSettings from "./NoteTextSettings";
+import PencilTextSettings from "./PencilTextSettings";
 
 interface SelectionToolsProsp {
   camera: Camera;
@@ -79,14 +93,46 @@ const SelectionTools = memo(function SelectionTools({
 
   return (
     <div
-      className="absolute p-3 rounded-2xl bg-white shadow-sm border flex select-none"
+      className="absolute p-2 rounded-2xl bg-white shadow-sm border flex select-none"
       style={{
         transform: `translate(calc(${x}px - 50%), calc(${y - 16}px - 100%))`,
       }}
     >
-      <ColorPicker onChange={setFill} />
+      <div>
+        <Popover>
+          <Hint label="Change Color" side="left">
+            <PopoverTrigger asChild>
+              <Button variant="board" size="icon">
+                <Palette />
+              </Button>
+            </PopoverTrigger>
+          </Hint>
+          <PopoverContent side="top" sideOffset={10} className="p-2">
+            <ColorPicker onChange={setFill} />
+          </PopoverContent>
+        </Popover>
+      </div>
 
-      <div className="flex flex-col gap-0.5">
+      <div className="flex  gap-0.5 pl-2 ml-2 border-l border-neutral-300">
+        <Popover>
+          <Hint label="Font" side="bottom">
+            <PopoverTrigger asChild>
+              <Button variant="board" size="icon">
+                <LetterText />
+              </Button>
+            </PopoverTrigger>
+          </Hint>
+          <PopoverContent
+            side="top"
+            sideOffset={13}
+            className="w-[min(420px,100%)] p-1"
+          >
+            <NoteTextSettings />
+          </PopoverContent>
+        </Popover>
+      </div>
+
+      <div className="flex  gap-0.5 pl-2 ml-2 border-l border-neutral-300">
         <Hint label="Bring To Front">
           <Button variant="board" size="icon" onClick={moveToFront}>
             <BringToFront />
@@ -100,7 +146,26 @@ const SelectionTools = memo(function SelectionTools({
         </Hint>
       </div>
 
-      <div className="flex items-center justify-center pl-2 ml-2 border-l border-neutral-300 ">
+      <div className="flex  gap-0.5 pl-2 ml-2 border-l border-neutral-300">
+        <Popover>
+          <Hint label="pencil" side="bottom">
+            <PopoverTrigger asChild>
+              <Button variant="board" size="icon">
+                <Pencil />
+              </Button>
+            </PopoverTrigger>
+          </Hint>
+          <PopoverContent
+            side="top"
+            sideOffset={13}
+            className="w-[min(420px,100%)] p-1"
+          >
+            <PencilTextSettings />
+          </PopoverContent>
+        </Popover>
+      </div>
+
+      <div className="flex items-center justify-center pl-2 ml-2 border-l border-neutral-300">
         <Hint label="Delete">
           <Button onClick={deleteLayer} variant="board" size="icon">
             <Trash2 />

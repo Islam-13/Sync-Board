@@ -42,6 +42,9 @@ const LayerPreview = memo(function LayerPreview({
           key={id}
           x={layer.x}
           y={layer.y}
+          size={
+            layer.fontOptions?.fSize ? parseInt(layer.fontOptions?.fSize) : 16
+          }
           fill={layer.fill ? colorToCss(layer.fill) : "#000"}
           points={layer.points}
           stroke={selectionColor}
