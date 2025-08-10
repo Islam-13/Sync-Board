@@ -424,6 +424,7 @@ function Canvas({ boardId }: CanvasProps) {
             <Path
               points={pencilDraft}
               fill={colorToCss(lastUsedColor)}
+              size={24}
               x={0}
               y={0}
             />

@@ -23,9 +23,16 @@ function NewButton() {
         </div>
       </DialogTrigger>
 
-      <DialogContent className="p-0 border-none bg-transparent w-full max-w-[600px]">
+      <DialogContent className="p-0 border-none w-[min(100%,450px)]">
         <DialogTitle hidden>Create Organization</DialogTitle>
-        <CreateOrganization />
+        <CreateOrganization
+          appearance={{
+            elements: {
+              rootBox: { width: "100%" },
+              cardBox: { width: "100%" },
+            },
+          }}
+        />
       </DialogContent>
     </Dialog>
   );
