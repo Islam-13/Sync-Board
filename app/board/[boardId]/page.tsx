@@ -7,6 +7,18 @@ interface BoardIdPageProps {
   }>;
 }
 
+interface TitleProps {
+  searchParams: Promise<{
+    title: string;
+  }>;
+}
+
+export async function generateMetadata({ searchParams }: TitleProps) {
+  const { title } = await searchParams;
+
+  return { title };
+}
+
 async function BoardIdPage({ params }: BoardIdPageProps) {
   const { boardId } = await params;
 

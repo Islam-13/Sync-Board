@@ -3,6 +3,7 @@
 import Hint from "@/app/(dashboard)/_components/Hint";
 import Actions from "@/components/Actions";
 import { Button } from "@/components/ui/button";
+import Loader from "@/components/ui/Loader";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { useRenameModal } from "@/store/useRenameModal";
@@ -19,7 +20,7 @@ function Info({ boardId }: InfoProps) {
   const data = useQuery(api.board.get, { id: boardId as Id<"boards"> });
   const { onOpen } = useRenameModal();
 
-  if (!data) return <div>loading....</div>;
+  if (!data) return <Loader />;
 
   return (
     <div className="absolute top-2 left-2 bg-white shadow-md rounded-md p-3 flex items-center h-12">

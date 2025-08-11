@@ -54,7 +54,7 @@ function BoardCard({
   }
 
   return (
-    <Link href={`/board/${id}`}>
+    <Link href={`/board/${id}?title=${title}`}>
       <div className="group aspect-[100/127] border rounded-lg flex flex-col justify-between overflow-hidden">
         <div className="flex-1 relative bg-amber-50">
           <Image fill src={imageUrl} alt={title} className="object-cover" />
