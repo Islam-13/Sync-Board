@@ -39,7 +39,7 @@ function RenameModal() {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent>
+      <DialogContent className="w-[min(100%,500px)]">
         <DialogHeader>
           <DialogTitle>Edit board title</DialogTitle>
         </DialogHeader>

@@ -62,8 +62,8 @@ function BoardCard({
           <div className="h-full w-full opacity-0 group-hover:opacity-50 bg-black transition-opacity" />
 
           <Actions id={id} title={title} side="right">
-            <button className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 p-2 outline-none transition-opacity">
-              <MoreHorizontal className="text-white opacity-75 hover:opacity-100 transition-opacity" />
+            <button className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 p-2 outline-none transition-opacity cursor-pointer">
+              <MoreHorizontal className="text-white opacity-65 hover:opacity-100 transition-opacity" />
             </button>
           </Actions>
         </div>
@@ -79,7 +79,7 @@ function BoardCard({
             onClick={toggleFavorite}
             disabled={favoritePend || unfavoritePend}
             className={cn(
-              "absolute top-3 right-3 text-muted-foreground hover:text-blue-600",
+              "absolute top-3 right-3 text-muted-foreground hover:text-blue-600 cursor-pointer",
               (favoritePend || unfavoritePend) &&
                 "cursor-not-allowed opacity-75"
             )}

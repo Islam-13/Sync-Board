@@ -29,7 +29,7 @@ function PencilTextSettings() {
           <Button
             variant="board"
             size="icon"
-            onClick={() => setFont({ fSize: "13px" })}
+            onClick={() => setFont({ fSize: "10px" })}
           >
             <LineSquiggle strokeWidth={0.5} />
           </Button>
@@ -41,7 +41,7 @@ function PencilTextSettings() {
           <Button
             variant="board"
             size="icon"
-            onClick={() => setFont({ fSize: "24px" })}
+            onClick={() => setFont({ fSize: "20px" })}
           >
             <Activity strokeWidth={1.5} />
           </Button>
@@ -53,7 +53,7 @@ function PencilTextSettings() {
           <Button
             variant="board"
             size="icon"
-            onClick={() => setFont({ fSize: "35px" })}
+            onClick={() => setFont({ fSize: "30px" })}
           >
             <AudioWaveform strokeWidth={3} />
           </Button>

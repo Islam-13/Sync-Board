@@ -43,7 +43,7 @@ const LayerPreview = memo(function LayerPreview({
           x={layer.x}
           y={layer.y}
           size={
-            layer.fontOptions?.fSize ? parseInt(layer.fontOptions?.fSize) : 16
+            layer.fontOptions?.fSize ? parseInt(layer.fontOptions?.fSize) : 13
           }
           fill={layer.fill ? colorToCss(layer.fill) : "#000"}
           points={layer.points}

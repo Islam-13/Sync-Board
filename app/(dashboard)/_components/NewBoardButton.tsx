@@ -32,7 +32,7 @@ function NewBoardButton({ orgId, disabled }: NewBoardButtonProps) {
       disabled={disabled || pending}
       onClick={handleClick}
       className={cn(
-        "col-span-1 aspect-[100/127] bg-blue-600 rounded-lg hover:bg-blue-800 flex flex-col justify-center items-center text-white ",
+        "col-span-1 aspect-[100/127] bg-blue-600 rounded-lg hover:bg-blue-800 flex flex-col justify-center items-center text-white cursor-pointer",
         (pending || disabled) &&
           "opacity-75 cursor-not-allowed hover:bg-blue-600"
       )}

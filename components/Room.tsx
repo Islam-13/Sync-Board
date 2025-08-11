@@ -8,6 +8,7 @@ import {
 } from "@liveblocks/react/suspense";
 import { LiveList, LiveMap, LiveObject } from "@liveblocks/client";
 import { Layer } from "@/types/canvas";
+import LoadingRoom from "./ui/LoadingRoom";
 
 interface RoomProps {
   children: ReactNode;
@@ -30,7 +31,7 @@ export function Room({ children, roomId }: RoomProps) {
           layerIds: new LiveList([]),
         }}
       >
-        <ClientSideSuspense fallback={<div>Loading room…</div>}>
+        <ClientSideSuspense fallback={<LoadingRoom />}>
           {children}
         </ClientSideSuspense>
       </RoomProvider>

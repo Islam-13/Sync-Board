@@ -45,6 +45,7 @@ function Drafts() {
           return (
             <Path
               key={key}
+              size={13}
               x={0}
               y={0}
               points={other.pencilDraft}

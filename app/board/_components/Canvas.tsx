@@ -371,7 +371,9 @@ function Canvas({ boardId }: CanvasProps) {
   return (
     <main className="h-full w-full relative touch-none bg-neutral-100">
       <Info boardId={boardId} />
+
       <Participants />
+
       <Toolbar
         canRedo={canRedo}
         canUndo={canUndo}
@@ -424,7 +426,7 @@ function Canvas({ boardId }: CanvasProps) {
             <Path
               points={pencilDraft}
               fill={colorToCss(lastUsedColor)}
-              size={24}
+              size={13}
               x={0}
               y={0}
             />

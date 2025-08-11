@@ -22,7 +22,7 @@ const Cursor = memo(function Cursor({ connectionId }: CursorProps) {
   return (
     <foreignObject
       className="relative drop-shadow-md"
-      style={{ transform: `translateX(${x}px) translateX(${y}px)` }}
+      style={{ transform: `translateX(${x}px) translateY(${y}px)` }}
       width={name.length * 10 + 24}
       height={50}
     >
