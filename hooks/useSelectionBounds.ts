@@ -31,6 +31,6 @@ export function useSelectionBounds() {
       ?.map((layerId) => r.layers.get(layerId)!)
       ?.filter(Boolean);
 
-    return boundingBox(selectedLayers);
+    return boundingBox(selectedLayers!);
   }, shallow);
 }

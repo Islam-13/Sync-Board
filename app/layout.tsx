@@ -4,7 +4,6 @@ import "./globals.css";
 import ConvexClientProvider from "@/providers/ConvexClientProvider";
 import { Toaster } from "@/components/ui/sonner";
 import ModalProvider from "@/providers/ModalProvider";
-import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
