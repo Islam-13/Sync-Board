@@ -201,7 +201,6 @@ function Canvas({ boardId }: CanvasProps) {
         liveLayers.size >= MAX_LAYERS
       ) {
         setMyPresence({ pencilDraft: null });
-        console.log(liveLayers.size);
         return;
       }
 
